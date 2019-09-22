@@ -6,7 +6,7 @@
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 08:31:24 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/22 16:54:08 by dmolyboh         ###   ########.fr       */
+/*   Updated: 2019/09/22 17:14:11 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ Squad::~Squad()
 	{
 		tmp = this->list;
 		this->list = this->list->next;
-		free(tmp);
+		// delete tmp->objct;
+		delete tmp;
 		count--;
 	}
 	
