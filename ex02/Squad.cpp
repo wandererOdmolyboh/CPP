@@ -6,7 +6,7 @@
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 08:31:24 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/22 16:19:16 by dmolyboh         ###   ########.fr       */
+/*   Updated: 2019/09/22 16:54:08 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,16 @@ Squad::Squad()
 
 Squad::~Squad()
 {
+	s_squad *tmp;
 
+	while (count != 0)
+	{
+		tmp = this->list;
+		this->list = this->list->next;
+		free(tmp);
+		count--;
+	}
+	
 }
 
 int	Squad::getCount() const
@@ -35,7 +44,15 @@ ISpaceMarine* Squad::getUnit(int i) const
 
 	tmp = this->list;
 	count = this->count;
-		return(tmp->next->objct);
+
+	for (int t = 0; t < count; t++ )
+	{
+	    if (t == i)
+            return  (tmp->objct);
+	    tmp = tmp->next;
+	}
+
+	return(NULL);
 
 }
 
@@ -49,11 +66,9 @@ int Squad::push(ISpaceMarine *obj)
 		this->list = new s_squad;
 		this->list->objct = obj;
 		this->list->next = NULL;
-		printf("1\n");
 	}
 	else
 	{
-		printf("2\n");
 		tmp = this->list;
 		while (tmp->next)
 		{
