@@ -6,7 +6,7 @@
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 08:31:31 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/22 11:17:49 by dmolyboh         ###   ########.fr       */
+/*   Updated: 2019/09/22 15:04:35 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ class Squad : public ISquad
 		};
 		Squad();
 		~Squad();
-		ISpaceMarine* getUnit(int i);
+		ISpaceMarine* getUnit(int i) const;
 		int push(ISpaceMarine *obj);
-		int	getCount();
+		int	getCount() const;
 	private:
 		
 		s_squad		*list;
