@@ -1,50 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 11:50:55 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/21 20:29:35 by dmolyboh         ###   ########.fr       */
+/*   Created: 2019/09/22 08:31:16 by dmolyboh          #+#    #+#             */
+/*   Updated: 2019/09/22 09:10:05 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.hpp"
+#include "AssaultTerminator.hpp"
+#include "TacticalMarine.hpp"
 
-Enemy::Enemy()
+int main()
 {
-	this->HP = 0;
-	this->Type = "random";
-}
-
-Enemy::~Enemy()
-{
-	return ;
-}
-
-void Enemy::setType(const std::string type) 
-{
-	this->Type = type;
-}
-
-void Enemy::setHP(int hp)
-{
-	this->HP = hp;
-}
-
-std::string Enemy::getType() const
-{
-	return (this->Type);
-}
-
-int Enemy::getHP() const
-{
-	return (HP);
-}
-
-void Enemy::takeDamage(int damage)
-{
-	if (damage < 0)
-		return ;
+	ISpaceMarine* bob = new TacticalMarine;
+	ISpaceMarine* jim = new AssaultTerminator;
+	ISquad* vlc = new Squad;
+	vlc->push(bob);
+	vlc->push(jim);
+	for (int i = 0; i < vlc->getCount(); ++i)
+	{
+		ISpaceMarine* cur = vlc->getUnit(i);
+		cur->battleCry();
+		cur->rangedAttack();
+		cur->meleeAttack();
+	}
+	delete vlc;
+	return 0;
 }

@@ -1,50 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   ISquad.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 11:50:55 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/21 20:29:35 by dmolyboh         ###   ########.fr       */
+/*   Created: 2019/09/22 08:31:06 by dmolyboh          #+#    #+#             */
+/*   Updated: 2019/09/22 09:44:47 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.hpp"
+#include <iostream>
 
-Enemy::Enemy()
-{
-	this->HP = 0;
-	this->Type = "random";
-}
+#include "ISpaceMarine.hpp"
 
-Enemy::~Enemy()
-{
-	return ;
-}
+#ifndef ISQUAD_HPP
+# define ISQUAD_HPP
 
-void Enemy::setType(const std::string type) 
+class ISquad
 {
-	this->Type = type;
-}
+	public:
+		virtual ~ISquad() {}
+		virtual int getCount() const = 0;
+		virtual ISpaceMarine* getUnit(int) const = 0;
+		virtual int push(ISpaceMarine*) = 0;
+};
 
-void Enemy::setHP(int hp)
-{
-	this->HP = hp;
-}
-
-std::string Enemy::getType() const
-{
-	return (this->Type);
-}
-
-int Enemy::getHP() const
-{
-	return (HP);
-}
-
-void Enemy::takeDamage(int damage)
-{
-	if (damage < 0)
-		return ;
-}
+#endif

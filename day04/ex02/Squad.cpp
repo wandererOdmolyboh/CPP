@@ -1,50 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   Squad.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 11:50:55 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/21 20:29:35 by dmolyboh         ###   ########.fr       */
+/*   Created: 2019/09/22 08:31:24 by dmolyboh          #+#    #+#             */
+/*   Updated: 2019/09/22 11:01:37 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.hpp"
+#include "Squad.hpp"
 
-Enemy::Enemy()
+Squad::Squad()
 {
-	this->HP = 0;
-	this->Type = "random";
+	this->count = 0;
+	this->list = NULL;
 }
 
-Enemy::~Enemy()
+Squad::~Squad()
 {
-	return ;
+
 }
 
-void Enemy::setType(const std::string type) 
+int	Squad::getCount()
 {
-	this->Type = type;
+	return (this->count);
 }
 
-void Enemy::setHP(int hp)
+ISpaceMarine* Squad::getUnit(int i)
 {
-	this->HP = hp;
+	
 }
 
-std::string Enemy::getType() const
+int Squad::push(ISpaceMarine *obj)
 {
-	return (this->Type);
-}
+	t_squad *tmp;
 
-int Enemy::getHP() const
-{
-	return (HP);
-}
-
-void Enemy::takeDamage(int damage)
-{
-	if (damage < 0)
-		return ;
+	
+	this->count++;
+	if (this->list == NULL)
+		this->list->objct = obj;
+	else
+	{
+		tmp = list;
+		while (tmp->next)
+		{
+			tmp = tmp->next;
+		}
+		tmp->next = obj;
+		tmp->next->next = NULL;
+	}
+	
 }

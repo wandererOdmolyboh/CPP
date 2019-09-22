@@ -1,50 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   Squad.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 11:50:55 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/21 20:29:35 by dmolyboh         ###   ########.fr       */
+/*   Created: 2019/09/22 08:31:31 by dmolyboh          #+#    #+#             */
+/*   Updated: 2019/09/22 11:17:49 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.hpp"
+#ifndef SQUAD_HPP
+# define SQUAD_HPP
 
-Enemy::Enemy()
-{
-	this->HP = 0;
-	this->Type = "random";
-}
 
-Enemy::~Enemy()
-{
-	return ;
-}
+#include "ISquad.hpp"
+#include "ISpaceMarine.hpp"
 
-void Enemy::setType(const std::string type) 
+class Squad : public ISquad
 {
-	this->Type = type;
-}
 
-void Enemy::setHP(int hp)
-{
-	this->HP = hp;
-}
+	public:
+		struct					s_squad
+		{
+			ISpaceMarine		*objct;
+			s_squad 			*next;
+		};
+		Squad();
+		~Squad();
+		ISpaceMarine* getUnit(int i);
+		int push(ISpaceMarine *obj);
+		int	getCount();
+	private:
+		
+		s_squad		*list;
+		int			count;
+};
 
-std::string Enemy::getType() const
-{
-	return (this->Type);
-}
-
-int Enemy::getHP() const
-{
-	return (HP);
-}
-
-void Enemy::takeDamage(int damage)
-{
-	if (damage < 0)
-		return ;
-}
+#endif

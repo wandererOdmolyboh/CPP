@@ -14,7 +14,7 @@
 
 RadScorpion::RadScorpion()
 {
-	setHP(80);
+	setHP(90);
 	setType("RadScorpion");
 	std::cout << "* click click click *" << std::endl;
 	return ;

@@ -16,8 +16,8 @@
 PowerFist::PowerFist()
 {
 	this->setName("Power Fist");
-	this->setAPCost(8);
 	this->setDamage(50);
+	this->setAPCost(8);
 	return ;
 }
 

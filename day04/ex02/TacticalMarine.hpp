@@ -1,50 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   TacticalMarine.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 11:50:55 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/21 20:29:35 by dmolyboh         ###   ########.fr       */
+/*   Created: 2019/09/22 08:31:49 by dmolyboh          #+#    #+#             */
+/*   Updated: 2019/09/22 09:46:28 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.hpp"
-
-Enemy::Enemy()
+#include "ISpaceMarine.hpp"
+#ifndef TACTICAlMARINE_HPP
+# define TACTICAlMARINE_HPP
+class TacticalMarine : public ISpaceMarine
 {
-	this->HP = 0;
-	this->Type = "random";
-}
+	private:
+		/* data */
+	public:
+		TacticalMarine(/* args */);
+		~TacticalMarine();
+		TacticalMarine(TacticalMarine const &ter);
+		
+		ISpaceMarine* clone() const;
+		void battleCry() const;
+		void rangedAttack() const;
+		void meleeAttack() const;
+};
+#endif
 
-Enemy::~Enemy()
-{
-	return ;
-}
-
-void Enemy::setType(const std::string type) 
-{
-	this->Type = type;
-}
-
-void Enemy::setHP(int hp)
-{
-	this->HP = hp;
-}
-
-std::string Enemy::getType() const
-{
-	return (this->Type);
-}
-
-int Enemy::getHP() const
-{
-	return (HP);
-}
-
-void Enemy::takeDamage(int damage)
-{
-	if (damage < 0)
-		return ;
-}

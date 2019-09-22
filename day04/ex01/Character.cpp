@@ -6,7 +6,7 @@
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 11:52:21 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/21 18:24:33 by dmolyboh         ###   ########.fr       */
+/*   Updated: 2019/09/22 11:25:37 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,26 @@ void Character::equip(AWeapon *weapon)
 	return ;
 }
 
-void Character::attack(Enemy* enemy)
+void Character::attack(Enemy*& enemy)
 {
 	int hp_enemy;
 
-	if (this->weapon == NULL || enemy == NULL)
+	if (this->weapon == NULL)
+		return ;
+	if (enemy == NULL)
 		return ;
 	this->AP -= this->weapon->getAPCost();
 	if (AP > 0)
 	{
 		hp_enemy = enemy->getHP() - this->weapon->getDamage();
-		if (hp_enemy <= 0)
-			delete (enemy);
-		enemy->setHP(hp_enemy);
 		std::cout << this->name + " attacks " + enemy->getType() + " with a " + this->weapon->getName() << std::endl;
 		this->weapon->attack();
+		enemy->setHP(hp_enemy);
+		if (hp_enemy <= 0)
+		{
+			delete enemy;
+			enemy = NULL;
+		}
 	}
 }
 

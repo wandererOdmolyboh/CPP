@@ -6,7 +6,7 @@
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 11:52:15 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/21 15:50:15 by dmolyboh         ###   ########.fr       */
+/*   Updated: 2019/09/22 11:21:20 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Character
 		
 		void recoverAP();
 		void equip(AWeapon*);
-		void attack(Enemy*);
+		void attack(Enemy*&);
 		
 		std::string getName() const;
 		void setName(std::string);

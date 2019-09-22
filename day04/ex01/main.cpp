@@ -6,7 +6,7 @@
 /*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 13:28:55 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/21 20:34:04 by dmolyboh         ###   ########.fr       */
+/*   Updated: 2019/09/22 11:21:43 by dmolyboh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,9 @@ int main()
 	zaz->attack(b);
 	std::cout << *zaz;
 	zaz->attack(b);
+	std::cout << b << std::endl;
 	std::cout << *zaz;
-return 0; }
+	zaz->attack(b);
+	std::cout << *zaz;
+	return 0;
+}

@@ -15,8 +15,8 @@
 PlasmaRifle::PlasmaRifle()
 {
 	this->setName("Plasma Rifle");
-	this->setAPCost(5);
 	this->setDamage(21);
+	this->setAPCost(5);
 	return ;
 }
 
