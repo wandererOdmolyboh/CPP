@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dmolyboh/CLionProjects/pool/ex02/ISpaceMarine.hpp
+iostream
+-
+
+/Users/dmolyboh/CLionProjects/pool/ex02/ISquad.hpp
+iostream
+-
+ISpaceMarine.hpp
+/Users/dmolyboh/CLionProjects/pool/ex02/ISpaceMarine.hpp
+
+/Users/dmolyboh/CLionProjects/pool/ex02/Squad.cpp
+Squad.hpp
+/Users/dmolyboh/CLionProjects/pool/ex02/Squad.hpp
+
+/Users/dmolyboh/CLionProjects/pool/ex02/Squad.hpp
+ISquad.hpp
+/Users/dmolyboh/CLionProjects/pool/ex02/ISquad.hpp
+ISpaceMarine.hpp
+/Users/dmolyboh/CLionProjects/pool/ex02/ISpaceMarine.hpp
+
