@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmolyboh <dmolyboh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wanderer <wanderer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/22 08:30:59 by dmolyboh          #+#    #+#             */
-/*   Updated: 2019/09/22 10:43:10 by dmolyboh         ###   ########.fr       */
+/*   Created: 2019/09/25 09:58:33 by wanderer          #+#    #+#             */
+/*   Updated: 2019/09/25 10:27:43 by wanderer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "AMateria.hpp"
 
-#ifndef ISPACEMARINE_HPP
-# define ISPACEMARINE_HPP
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-class ISpaceMarine
+class IMateriaSource
 {
-	public:
-		virtual ~ISpaceMarine(){}
-		virtual ISpaceMarine* clone() const = 0;
-		virtual void battleCry() const = 0;
-		virtual void rangedAttack() const = 0;
-		virtual void meleeAttack() const = 0;
+public:
+	virtual ~IMateriaSource() {}
+	virtual void learnMateria(AMateria*) = 0;
+	virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 #endif
