@@ -5,35 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wanderer <wanderer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/25 10:24:35 by wanderer          #+#    #+#             */
-/*   Updated: 2019/09/27 16:28:36 by wanderer         ###   ########.fr       */
+/*   Created: 2019/09/28 21:57:18 by wanderer          #+#    #+#             */
+/*   Updated: 2019/09/28 22:13:22 by wanderer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
-# define BUFF_SIZE 4
-#include <iostream>
-#include "AMateria.hpp"
 
-class Character : public ICharacter
+#include <iostream>
+
+class Character
 {
-    private:
-        int         count_elm;
-        AMateria    *inventory[BUFF_SIZE];
-        std::string name;
-    public:
-        Character(/* args */);
-        Character(std::string name);
-        ~Character();
-        std::string const & getName() const;
-        void equip(AMateria* m);
-        void unequip(int idx);
-        void use(int idx, ICharacter& target);
+	private:
+		std::string	Name;
+		float	Health;
+		float	Damage;
+	public:
+		Character();
+		~Character();
+	/*Copliens forms*/
+		/****Getters****/
+		std::string	get_Name();
+		float	get_Health();
+		float	get_Damage();
+		/****Setters****/
+		void set_Name(std::string name);
+		void set_Health(float health);
+		void set_Damage(float damage);
 };
 
-
-
-
 #endif
+
+Character::Character(/* args */)
+{
+}
+
+Character::~Character()
+{
+}

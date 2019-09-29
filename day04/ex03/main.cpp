@@ -6,7 +6,7 @@
 /*   By: wanderer <wanderer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/25 10:02:22 by wanderer          #+#    #+#             */
-/*   Updated: 2019/09/25 10:25:59 by wanderer         ###   ########.fr       */
+/*   Updated: 2019/09/27 17:50:06 by wanderer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,26 @@
 #include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {
-	AMateria	*tmp;
+	// Ice *ice = new Ice("s");
 	IMateriaSource	*src = new MateriaSource();
-	ICharacter	*bob = new Character("bob");
-	ICharacter	*zaz = new Character("zaz");
-
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+	
+	ICharacter	*zaz = new Character("zaz");
+	
+	AMateria	*tmp;
 
-	tmp = src->createMateria("ice");
+
+	tmp = src->createMateria("Ice");
 	zaz->equip(tmp);
-	tmp = src->createMateria("cure");
+	tmp = src->createMateria("Cure");
 	zaz->equip(tmp);
+	
+	ICharacter	*bob = new Character("bob");
 
 	zaz->use(0, *bob);
 	zaz->use(1, *bob);
